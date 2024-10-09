@@ -29,7 +29,7 @@ const inspect = Inspect({
 })
 const DIR_DIST =
   typeof __dirname !== 'undefined' ? __dirname : dirname(fileURLToPath(import.meta.url))
-const DIR_CLIENT = resolve$1(DIR_DIST, '../client')
+const DIR_CLIENT = resolve$1(DIR_DIST, '../client/dist/')
 function kolorist(start: number, end: number, level = 1 /* ansi */) {
   const open = `\x1b[${start}m`
   const close = `\x1b[${end}m`
@@ -362,12 +362,6 @@ export default function vueTools() {
     configureServer(server: any) {
       // 获得基础路径
       const base = server.config.base || '/'
-      //
-      // `${base}__devtools__1`,
-      // sirv(DIR_CLIENT, {
-      //   single: true,
-      //   dev: true
-      // })
       console.log(DIR_CLIENT)
       server.middlewares.use(
         `${base}__devtools1__`,
